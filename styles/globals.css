@@ -2,26 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  @apply box-border focus:outline-none;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
 
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply font-sans h-full w-full m-0 p-0;
+}
+
+body > #__next {
+  @apply h-full w-full overflow-y-auto bg-green-200;
+}
+
+h1 {
+  @apply font-serif leading-snug;
+  font-family: 'Dongle', serif; /* Use 'Dongle' as the font family */
+  font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 400;
+  letter-spacing: -0.1rem;
+}
+
+h2 {
+    @apply font-serif leading-snug;
+    font-family: 'Dongle', serif; /* Use 'Dongle' as the font family */
+    font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 300;
+    letter-spacing: -0.1rem;
+}
+
+[cmdk-list] {
+  scroll-padding-block-start: 8px;
+  scroll-padding-block-end: 8px;
 }
